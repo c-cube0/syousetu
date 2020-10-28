@@ -6,9 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div class="cp_iptxt">
-          <label class="ef">
-            <input type="text" placeholder="タイトル" />
-          </label>
+          <input type="text" placeholder="タイトル" />
         </div>
         <textarea></textarea>
       </header>

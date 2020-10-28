@@ -1,6 +1,4 @@
-.App {
 
-}
 
 
 
@@ -8,11 +6,10 @@
 
 .App-header {
   min-height: 100vh;
-  /* display: flex; */
   flex-direction: column;
   align-items: center;
   color: white;
-  background-color: ;	
+  
   padding-left: 100px;
 }
 

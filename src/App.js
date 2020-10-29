@@ -1,27 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
+import ImageCount from "./ImageCount";
 
-function App({ Imajeitem }) {
-  const [imajeitem, setImajeitem] = useState("https://placehold.jp/200x200.png");
+function App() {
+  const [storeId] = useState("123456");
+  const [imageItem] = useState("");
+
   return (
     <div className="App">
       <header className="App-header">
-        <div class="cp_iptxt">
+        <div className="cp_iptxt">
           <input type="text" placeholder="タイトル" />
         </div>
         <textarea></textarea>
       </header>
-      <div class="imaje-foto">
-        <img src={imajeitem} alt={"風景画像"} />
-        <img src={imajeitem} alt={"風景画像"} />
-        <img src={imajeitem} alt={"風景画像"} />
-        <img src={imajeitem} alt={"風景画像"} />
-        <div class="imaje-item"></div>
-        <div class="imaje-item"></div>
-        <div class="imaje-item"></div>
-        <div class="imaje-item"></div>
+      <div className="image-photo">
+        <img src={imageItem} alt={"風景画像"} />
+        <div className="image-item"></div>
       </div>
+      <ImageCount storeId={storeId} />
 
     </div>
 

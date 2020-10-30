@@ -15,7 +15,6 @@ class ImageCount extends Component {
             .ref(`imageStore/${this.props.onetime}`)
             .on('value', snapshot => {
                 const value = snapshot.val();
-                console.log(value)
                 this.setState({ limitTime: value.limitTime, maxUpload: value.maxUpload })
             });
     }

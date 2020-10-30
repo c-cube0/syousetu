@@ -4,7 +4,7 @@ import ImageCount from "./ImageCount";
 import Images from "./Images";
 
 function App() {
-  const [storeId] = useState("123456");
+  const [onetime] = useState("123456");
 
   return (
     <div className="App">
@@ -14,8 +14,8 @@ function App() {
         </div>
         <textarea></textarea>
       </header>
-      <Images />
-      <ImageCount storeId={storeId} />
+      <Images onetime={onetime} />
+      <ImageCount onetime={onetime} />
     </div>
 
   );

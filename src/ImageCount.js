@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { firebaseDb } from "./libs/firebase";
-import "firebase/storage";
 
 class ImageCount extends Component {
     constructor(props) {
@@ -13,7 +12,7 @@ class ImageCount extends Component {
     // Firebaseからのデータ取得
     componentDidMount() {
         firebaseDb
-            .ref(`imageStore/${this.props.storeId}`)
+            .ref(`imageStore/${this.props.onetime}`)
             .on('value', snapshot => {
                 const value = snapshot.val();
                 console.log(value)

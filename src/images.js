@@ -1,30 +1,35 @@
-import React, {useState, useEffect} from 'react';
+import React, {Component} from 'react';
 import { firebaseDb } from "./libs/firebase";
 
-const Images = ({onetime}) => {
-  const [imageItems, setimageItems] = useState([]);
+class Images extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageItems: []
+    }
 
-  useEffect(() => {
-    const getImages = async () => {
-      firebaseDb
-      .ref(`imageStore/${onetime}`)
+  }
+
+  componentDidMount() {
+    firebaseDb
+      .ref(`imageStore/${this.props.onetime}`)
       .on('value', snapshot => {
           const value = snapshot.val();
           const arry = value.images.split(',');
-          setimageItems(arry)
+          this.setState({imageItems: arry});
       });
-    }
-    getImages();
-  });
-
-  return (
-  <div className="image-photo">
-  { imageItems && 
-    imageItems.map((imageItem, index) => imageItem && <img src={imageItem} alt={`アップロード画像 ${index + 1}枚目`} width="200" height="200" />)
   }
-    <div className="image-item"></div>
-  </div>
-  )
+
+  render() {
+  return (
+    <div className="image-photo">
+      { this.state.imageItems && 
+        this.state.imageItems.map((imageItem, index) => imageItem && <img key={index} src={imageItem} alt={`アップロード画像 ${index + 1}枚目`} width="200" height="200" />)
+      }
+      <div className="image-item"></div>
+    </div>
+    )
+  }
 }
 
 export default Images;

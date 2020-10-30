@@ -15,12 +15,14 @@ class ImageCount extends Component {
         firebaseDb
             .ref(`imageStore/${this.props.storeId}`)
             .on('value', snapshot => {
-                this.setState({ imageLength: snapshot.val() || [] })
+                const value = snapshot.val();
+                console.log(value)
+                this.setState({ limitTime: value.limitTime, maxUpload: value.maxUpload })
             });
     }
 
     render() {
-        return <p>{this.state.imageLength}枚あります</p>;
+        return <p>有効期限；{this.state.limitTime}　最大アップロード数；{this.state.maxUpload}</p>;
     }
 }
 

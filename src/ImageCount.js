@@ -20,7 +20,7 @@ class ImageCount extends Component {
     }
 
     render() {
-        return <p>有効期限；{this.state.limitTime}　最大アップロード数；{this.state.maxUpload}</p>;
+        return <p className="Deadline">有効期限；{this.state.limitTime}　最大アップロード数；{this.state.maxUpload}</p>;
     }
 }
 

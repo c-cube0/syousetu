@@ -12,10 +12,11 @@ function App() {
         <div className="cp_iptxt">
           <input type="text" placeholder="タイトル" />
         </div>
-        <textarea></textarea>
+        <Images onetime={onetime} />
       </header>
-      <Images onetime={onetime} />
-      <ImageCount onetime={onetime} />
+      <div>
+        <ImageCount onetime={onetime} />
+      </div>
     </div>
 
   );
